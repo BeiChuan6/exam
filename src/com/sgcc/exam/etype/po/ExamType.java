@@ -4,8 +4,8 @@ import java.util.Date;
 
 /**
  * ExamType
- * @author tyg
- * @date 2019-03-05
+ * @author forest
+ * @date 2019-03-06
  */
 public class ExamType implements java.io.Serializable {
 	
@@ -13,15 +13,11 @@ public class ExamType implements java.io.Serializable {
     
 	/** 试题分类ID*/
 	
-	private Integer examTypeId;
+	private String examTypeId;
 	
 	/** 父级编号*/
 	
 	private String parentId;
-	
-	/** 所有父级编号*/
-	
-	private String parentIds;
 	
 	/** 分类名称*/
 	
@@ -55,6 +51,10 @@ public class ExamType implements java.io.Serializable {
 	
 	private String delFlag;
 	
+	/** 组织ID*/
+	
+	private String struId;
+	
 	
 	/**虚拟主键*/
 	private String mxVirtualId;
@@ -66,17 +66,17 @@ public class ExamType implements java.io.Serializable {
     
 		
 	/** 构造方法 */
-	public ExamType(Integer examTypeId) {
+	public ExamType(String examTypeId) {
 	    this.examTypeId = examTypeId;
 	 }
 	 	   
 	
 	
-    public Integer getExamTypeId() {
+    public String getExamTypeId() {
         return this.examTypeId;
     }
     
-    public void setExamTypeId(Integer examTypeId) {
+    public void setExamTypeId(String examTypeId) {
         this.examTypeId = examTypeId;
     }
 	
@@ -87,15 +87,6 @@ public class ExamType implements java.io.Serializable {
     
     public void setParentId(String parentId) {
         this.parentId = parentId;
-    }
-	
-	
-    public String getParentIds() {
-        return this.parentIds;
-    }
-    
-    public void setParentIds(String parentIds) {
-        this.parentIds = parentIds;
     }
 	
 	
@@ -171,6 +162,15 @@ public class ExamType implements java.io.Serializable {
     }
 	
 	
+    public String getStruId() {
+        return this.struId;
+    }
+    
+    public void setStruId(String struId) {
+        this.struId = struId;
+    }
+	
+	
     public String getMxVirtualId() {
         return this.mxVirtualId;
     }
@@ -186,7 +186,6 @@ public class ExamType implements java.io.Serializable {
 		 buffer.append(getClass().getName()).append("@").append(Integer.toHexString(hashCode())).append(" [");
 		 buffer.append("examTypeId").append("='").append(getExamTypeId()).append("' ");			
 		 buffer.append("parentId").append("='").append(getParentId()).append("' ");			
-		 buffer.append("parentIds").append("='").append(getParentIds()).append("' ");			
 		 buffer.append("typeName").append("='").append(getTypeName()).append("' ");			
 		 buffer.append("typeCode").append("='").append(getTypeCode()).append("' ");			
 		 buffer.append("remarks").append("='").append(getRemarks()).append("' ");			
@@ -195,6 +194,7 @@ public class ExamType implements java.io.Serializable {
 		 buffer.append("updateBy").append("='").append(getUpdateBy()).append("' ");			
 		 buffer.append("updateDate").append("='").append(getUpdateDate()).append("' ");			
 		 buffer.append("delFlag").append("='").append(getDelFlag()).append("' ");			
+		 buffer.append("struId").append("='").append(getStruId()).append("' ");			
 		 buffer.append("mxVirtualId").append("='").append(getMxVirtualId()).append("' ");			
 		 buffer.append("]");
       
@@ -209,7 +209,6 @@ public class ExamType implements java.io.Serializable {
          
 		return ( (this.getExamTypeId()==castOther.getExamTypeId()) || ( this.getExamTypeId()!=null && castOther.getExamTypeId()!=null && this.getExamTypeId().equals(castOther.getExamTypeId()) ) )
  && ( (this.getParentId()==castOther.getParentId()) || ( this.getParentId()!=null && castOther.getParentId()!=null && this.getParentId().equals(castOther.getParentId()) ) )
- && ( (this.getParentIds()==castOther.getParentIds()) || ( this.getParentIds()!=null && castOther.getParentIds()!=null && this.getParentIds().equals(castOther.getParentIds()) ) )
  && ( (this.getTypeName()==castOther.getTypeName()) || ( this.getTypeName()!=null && castOther.getTypeName()!=null && this.getTypeName().equals(castOther.getTypeName()) ) )
  && ( (this.getTypeCode()==castOther.getTypeCode()) || ( this.getTypeCode()!=null && castOther.getTypeCode()!=null && this.getTypeCode().equals(castOther.getTypeCode()) ) )
  && ( (this.getRemarks()==castOther.getRemarks()) || ( this.getRemarks()!=null && castOther.getRemarks()!=null && this.getRemarks().equals(castOther.getRemarks()) ) )
@@ -218,6 +217,7 @@ public class ExamType implements java.io.Serializable {
  && ( (this.getUpdateBy()==castOther.getUpdateBy()) || ( this.getUpdateBy()!=null && castOther.getUpdateBy()!=null && this.getUpdateBy().equals(castOther.getUpdateBy()) ) )
  && ( (this.getUpdateDate()==castOther.getUpdateDate()) || ( this.getUpdateDate()!=null && castOther.getUpdateDate()!=null && this.getUpdateDate().equals(castOther.getUpdateDate()) ) )
  && ( (this.getDelFlag()==castOther.getDelFlag()) || ( this.getDelFlag()!=null && castOther.getDelFlag()!=null && this.getDelFlag().equals(castOther.getDelFlag()) ) )
+ && ( (this.getStruId()==castOther.getStruId()) || ( this.getStruId()!=null && castOther.getStruId()!=null && this.getStruId().equals(castOther.getStruId()) ) )
  && ( (this.getMxVirtualId()==castOther.getMxVirtualId()) || ( this.getMxVirtualId()!=null && castOther.getMxVirtualId()!=null && this.getMxVirtualId().equals(castOther.getMxVirtualId()) ) );
    }
    
@@ -226,7 +226,6 @@ public class ExamType implements java.io.Serializable {
          
 		result = 37 * result + ( getExamTypeId() == null ? 0 : this.getExamTypeId().hashCode() );
 		result = 37 * result + ( getParentId() == null ? 0 : this.getParentId().hashCode() );
-		result = 37 * result + ( getParentIds() == null ? 0 : this.getParentIds().hashCode() );
 		result = 37 * result + ( getTypeName() == null ? 0 : this.getTypeName().hashCode() );
 		result = 37 * result + ( getTypeCode() == null ? 0 : this.getTypeCode().hashCode() );
 		result = 37 * result + ( getRemarks() == null ? 0 : this.getRemarks().hashCode() );
@@ -235,6 +234,7 @@ public class ExamType implements java.io.Serializable {
 		result = 37 * result + ( getUpdateBy() == null ? 0 : this.getUpdateBy().hashCode() );
 		result = 37 * result + ( getUpdateDate() == null ? 0 : this.getUpdateDate().hashCode() );
 		result = 37 * result + ( getDelFlag() == null ? 0 : this.getDelFlag().hashCode() );
+		result = 37 * result + ( getStruId() == null ? 0 : this.getStruId().hashCode() );
 		result = 37 * result + ( getMxVirtualId() == null ? 0 : this.getMxVirtualId().hashCode() );
 		return result;
    }   
